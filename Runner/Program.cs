@@ -31,5 +31,8 @@ while (!valid)
     var example = runners.ElementAt(index);
     
     example.Run();
+    
+    Console.WriteLine("Press 'Enter' to exit");
+    Console.ReadLine();
 }
 
