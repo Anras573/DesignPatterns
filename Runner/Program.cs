@@ -1,11 +1,15 @@
 ﻿using Behavior.Strategy;
 using Common;
+using Creational.AbstractFactory;
+using Creational.Factory;
 using Structural.Decorator;
 
 var runners = new List<IRunner>
 {
     new DecoratorRunner(),
-    new StrategyRunner()
+    new StrategyRunner(),
+    new FactoryRunner(),
+    new AbstractFactoryRunner()
 };
 
 var valid = false;
