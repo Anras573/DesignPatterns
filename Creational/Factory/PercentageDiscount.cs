@@ -1,7 +1,7 @@
 ﻿namespace Creational.Factory;
 
 /// <summary>
-/// Our Concrete Product
+/// Concrete Product
 /// </summary>
 /// <param name="Value"></param>
 public record PercentageDiscount(decimal Value) : IDiscount

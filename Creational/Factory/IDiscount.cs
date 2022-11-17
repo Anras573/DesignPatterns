@@ -1,7 +1,7 @@
 ﻿namespace Creational.Factory;
 
 /// <summary>
-/// Our Product
+/// Product
 /// </summary>
 public interface IDiscount
 {
