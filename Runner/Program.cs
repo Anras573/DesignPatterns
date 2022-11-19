@@ -12,31 +12,32 @@ var runners = new List<IRunner>
     new AbstractFactoryRunner()
 };
 
-var valid = false;
-while (!valid)
+var keepGoing = true;
+
+while (keepGoing)
 {
-    Console.WriteLine("Choose which example to run:");
+    Console.WriteLine("Choose option to run, or enter 'exit' to exit program.");
 
-    foreach((IRunner runner, int i) in runners.Select((runner, i) => (runner, i)))
+    foreach(var (runner, i) in runners.Select((runner, i) => (runner, i)))
     {
-        Console.WriteLine($"{i} => {runner.Name}");
+        var prepend = i < 10 ? " " : string.Empty;
+        Console.WriteLine($"{prepend}{i} => {runner.Name}");
     }
 
-    var choice = Console.ReadLine();
-
-    valid = int.TryParse(choice, out var index) && index < runners.Count;
-        
-    if (!valid)
+    var input = Console.ReadLine();
+    
+    Console.WriteLine();
+    
+    if (string.Equals(input, "exit", StringComparison.OrdinalIgnoreCase))
     {
-        Console.Error.WriteLine("Invalid runner. Try again!");
-        continue;
+        keepGoing = false;
     }
-
-    var example = runners.ElementAt(index);
+    else if (int.TryParse(input, out var index))
+    {
+        var example = runners.ElementAtOrDefault(index);
     
-    example.Run();
+        example?.Run();
+    }
     
-    Console.WriteLine("Press 'Enter' to exit");
-    Console.ReadLine();
+    Console.WriteLine();
 }
-
