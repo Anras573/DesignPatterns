@@ -9,19 +9,28 @@ public class AbstractFactoryRunner : IRunner
     public void Run()
     {
         var subTotal = new Price(250m);
+        
+        IBasketService abstractFactory = new AmericanBasketService();
         var discountCode = new DiscountCode("BlackFriday25");
         var shippingMethods = new List<ShippingMethod>
-            { ShippingMethod.Fedex, ShippingMethod.UPS, ShippingMethod.USPS };
-        IBasketService abstractFactory = new AmericanBasketService();
+        {
+            ShippingMethod.Fedex,
+            ShippingMethod.UPS,
+            ShippingMethod.USPS
+        };
         
         Console.WriteLine($"**** {nameof(AmericanBasketService)} ****{Environment.NewLine}");
         
         CalculatePrices(shippingMethods, subTotal, abstractFactory, discountCode);
         
+        abstractFactory = new DanishBasketService();
         discountCode = new DiscountCode("logbuy10");
         shippingMethods = new List<ShippingMethod>
-            { ShippingMethod.PostNord, ShippingMethod.DAO, ShippingMethod.GLS };
-        abstractFactory = new DanishBasketService();
+        {
+            ShippingMethod.PostNord,
+            ShippingMethod.DAO,
+            ShippingMethod.GLS
+        };
 
         Console.WriteLine($"**** {nameof(DanishBasketService)} ****{Environment.NewLine}");
         
