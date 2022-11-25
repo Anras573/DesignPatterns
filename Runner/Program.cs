@@ -1,4 +1,5 @@
-﻿using Behavior.Strategy;
+﻿using Behavior.ChainOfResponsibility;
+using Behavior.Strategy;
 using Common;
 using Creational.AbstractFactory;
 using Creational.Factory;
@@ -9,7 +10,9 @@ var runners = new List<IRunner>
     new DecoratorRunner(),
     new StrategyRunner(),
     new FactoryRunner(),
-    new AbstractFactoryRunner()
+    new AbstractFactoryRunner(),
+    new OpenClosedChainOfResponsibilityRunner(),
+    new ShortCircuitChainOfResponsibilityRunner()
 };
 
 var keepGoing = true;
