@@ -17,13 +17,15 @@ public class AmericanBasketService : IBasketService
     /// 
     /// </summary>
     /// <param name="code"></param>
+    /// <param name="shippingInfo"></param>
     /// <returns>AbstractProductA</returns>
-    public IDiscount GetDiscount(DiscountCode code)
+    public IDiscount GetDiscount(DiscountCode code, IShippingInfo shippingInfo)
     {
         return code.Value switch
         {
             "BlackFriday25" => new PercentageDiscount(25m),
             "SmartBuy15" => new ValueDiscount(15m),
+            "FreeShipping" => new ValueDiscount(shippingInfo.ShippingCost.Value),
             _ => new NoneDiscount()
         };
     }

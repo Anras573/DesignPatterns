@@ -5,6 +5,6 @@
 /// </summary>
 public interface IBasketService
 {
-    IDiscount GetDiscount(DiscountCode code);
+    IDiscount GetDiscount(DiscountCode code, IShippingInfo shippingInfo);
     IShippingInfo GetShippingInfo(ShippingMethod shippingMethod);
 }

@@ -31,7 +31,7 @@ public class AbstractFactoryRunner : IRunner
             ShippingMethod.DAO,
             ShippingMethod.GLS
         };
-
+        
         Console.WriteLine($"**** {nameof(DanishBasketService)} ****{Environment.NewLine}");
         
         CalculatePrices(shippingMethods, subTotal, abstractFactory, discountCode);
@@ -57,7 +57,7 @@ public class AbstractFactoryRunner : IRunner
 
             Console.WriteLine($"Applying discount code: {discountCode}");
 
-            var discount = abstractFactory.GetDiscount(discountCode);
+            var discount = abstractFactory.GetDiscount(discountCode, shippingInfo);
 
             Console.WriteLine(discount);
 
