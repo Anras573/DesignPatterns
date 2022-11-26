@@ -9,6 +9,8 @@ public class OpenClosedChainOfResponsibilityRunner : IRunner
     public void Run()
     {
         var request = new Request("1");
+        
+        Console.WriteLine(request);
 
         var handler = new NumericalValueHandler();
         handler.SetNextHandler(new StringValueHandler());
