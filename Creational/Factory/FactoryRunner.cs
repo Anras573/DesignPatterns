@@ -1,4 +1,5 @@
 ﻿using Common;
+using Creational.AbstractFactory;
 
 namespace Creational.Factory;
 
@@ -17,7 +18,7 @@ public class FactoryRunner : IRunner
             new ("NovemberDeals")
         };
 
-        IDiscountService factory = new DiscountService();
+        IDiscountFactory factory = new DiscountFactory();
         
         foreach (var discountCode in discountCodes)
         {

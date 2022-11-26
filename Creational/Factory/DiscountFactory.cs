@@ -1,9 +1,11 @@
-﻿namespace Creational.Factory;
+﻿using Creational.AbstractFactory;
+
+namespace Creational.Factory;
 
 /// <summary>
 /// Concrete Creator
 /// </summary>
-public class DiscountService : IDiscountService
+public class DiscountFactory : IDiscountFactory
 {
     public IDiscount GetDiscount(DiscountCode code)
     {

@@ -10,7 +10,7 @@ public class AbstractFactoryRunner : IRunner
     {
         var subTotal = new Price(250m);
         
-        IBasketService abstractFactory = new AmericanBasketService();
+        IBasketAbstractFactory abstractFactory = new AmericanBasketAbstractFactory();
         var discountCode = new DiscountCode("BlackFriday25");
         var shippingMethods = new List<ShippingMethod>
         {
@@ -19,11 +19,11 @@ public class AbstractFactoryRunner : IRunner
             ShippingMethod.USPS
         };
         
-        Console.WriteLine($"**** {nameof(AmericanBasketService)} ****{Environment.NewLine}");
+        Console.WriteLine($"**** {nameof(AmericanBasketAbstractFactory)} ****{Environment.NewLine}");
         
         CalculatePrices(shippingMethods, subTotal, abstractFactory, discountCode);
         
-        abstractFactory = new DanishBasketService();
+        abstractFactory = new DanishBasketAbstractFactory();
         discountCode = new DiscountCode("logbuy10");
         shippingMethods = new List<ShippingMethod>
         {
@@ -32,7 +32,7 @@ public class AbstractFactoryRunner : IRunner
             ShippingMethod.GLS
         };
         
-        Console.WriteLine($"**** {nameof(DanishBasketService)} ****{Environment.NewLine}");
+        Console.WriteLine($"**** {nameof(DanishBasketAbstractFactory)} ****{Environment.NewLine}");
         
         CalculatePrices(shippingMethods, subTotal, abstractFactory, discountCode);
     }
@@ -40,7 +40,7 @@ public class AbstractFactoryRunner : IRunner
     private static void CalculatePrices(
         List<ShippingMethod> shippingMethods,
         Price subTotal,
-        IBasketService abstractFactory,
+        IBasketAbstractFactory abstractFactory,
         DiscountCode discountCode)
     {
         foreach (var shippingMethod in shippingMethods)

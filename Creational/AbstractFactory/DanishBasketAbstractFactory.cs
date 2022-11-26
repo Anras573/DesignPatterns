@@ -3,7 +3,7 @@
 /// <summary>
 /// Concrete Creator / Concrete Abstract Factory
 /// </summary>
-public class DanishBasketService : IBasketService
+public class DanishBasketAbstractFactory : IBasketAbstractFactory
 {
     private static readonly Dictionary<ShippingMethod, IShippingInfo> ShippingInfos =
         new()
