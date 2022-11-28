@@ -4,8 +4,8 @@ public static class CurrencyFormatterFactory
 {
     private static readonly Dictionary<CurrencyFormat, ICurrencyFormatter> CurrencyFormatterDictionary = new()
     {
-        { CurrencyFormat.Danish, new DanishCurrencyFormatter() },
-        { CurrencyFormat.American, new AmericanCurrencyFormatter() }
+        { CurrencyFormat.Danish, new DanishCurrencyFormatterStrategy() },
+        { CurrencyFormat.American, new AmericanCurrencyFormatterStrategy() }
     };
 
     public static ICurrencyFormatter GetCurrencyFormatter(CurrencyFormat currencyFormat)

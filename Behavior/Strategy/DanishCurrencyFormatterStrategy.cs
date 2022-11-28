@@ -2,9 +2,9 @@
 
 namespace Behavior.Strategy;
 
-public record AmericanCurrencyFormatter : ICurrencyFormatter
+public record DanishCurrencyFormatterStrategy : ICurrencyFormatter
 {
-    private static readonly CultureInfo CultureInfo = new("en-US");
+    private static readonly CultureInfo CultureInfo = new("da-DK");
     
     public string Format(decimal value)
     {

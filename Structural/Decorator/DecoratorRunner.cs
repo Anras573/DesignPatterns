@@ -9,9 +9,10 @@ public record DecoratorRunner : IRunner
     public void Run()
     {
         INotifier notifier = new Notifier();
-        notifier = new SmsNotifier(notifier);
-        notifier = new TimeNotifier(notifier);
-        // Same as: var notifier = new TimeNotifier(new SmsNotifier(new Notifier()));
+        notifier = new SmsNotifierDecorator(notifier);
+        notifier = new NotifyCounterDecorator(notifier);
+        notifier = new TimeNotifierDecorator(notifier);
+        // Same as: var notifier = new TimeNotifierDecorator(new NotifyCounterDecorator(new SmsNotifierDecorator(new Notifier())));
 
         notifier.Send("Hello World!");
     }

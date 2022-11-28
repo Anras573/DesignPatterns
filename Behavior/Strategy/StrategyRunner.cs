@@ -15,6 +15,6 @@ public record StrategyRunner : IRunner
     private static void PrintCurrency(decimal value, CurrencyFormat currencyFormat)
     {
         var formatter = CurrencyFormatterFactory.GetCurrencyFormatter(currencyFormat);
-        Console.WriteLine(formatter.Format(value));
+        Console.WriteLine($"{currencyFormat}: {formatter.Format(value)}");
     }
 }
