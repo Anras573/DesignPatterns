@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Behavior.ChainOfResponsibility.Common;
 
 namespace Behavior.ChainOfResponsibility.ShortCircuitRequestHandler;
 

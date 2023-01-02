@@ -1,4 +1,4 @@
-﻿namespace Behavior.ChainOfResponsibility.OpenClosedRequestHandler;
+﻿namespace Behavior.ChainOfResponsibility.Common;
 
 public class NoopHandler : IRequestHandler
 {
