@@ -1,4 +1,5 @@
 ﻿using Behavior.ChainOfResponsibility;
+using Behavior.Command;
 using Behavior.Strategy;
 using Common;
 using Creational.AbstractFactory;
@@ -14,7 +15,8 @@ var runners = new List<IRunner>
     new AbstractFactoryRunner(),
     new OpenClosedChainOfResponsibilityRunner(),
     new ShortCircuitChainOfResponsibilityRunner(),
-    new PrototypeRunner()
+    new PrototypeRunner(),
+    new CommandRunner()
 };
 
 var keepGoing = true;
