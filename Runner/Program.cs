@@ -3,6 +3,7 @@ using Behavior.Strategy;
 using Common;
 using Creational.AbstractFactory;
 using Creational.Factory;
+using Creational.Prototype;
 using Structural.Decorator;
 
 var runners = new List<IRunner>
@@ -12,7 +13,8 @@ var runners = new List<IRunner>
     new FactoryRunner(),
     new AbstractFactoryRunner(),
     new OpenClosedChainOfResponsibilityRunner(),
-    new ShortCircuitChainOfResponsibilityRunner()
+    new ShortCircuitChainOfResponsibilityRunner(),
+    new PrototypeRunner()
 };
 
 var keepGoing = true;
