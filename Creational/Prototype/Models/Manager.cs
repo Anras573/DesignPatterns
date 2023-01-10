@@ -1,12 +1,11 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Creational.Prototype.Models;
 
 /// <summary>
 /// Concrete Prototype
 /// </summary>
-public class Manager : Person
+public record Manager : Person, ICloneableGeneric<Manager>, IDeepClonable<Manager>
 {
     public override string Name { get; set; }
     
@@ -14,16 +13,13 @@ public class Manager : Person
     {
         Name = name;
     }
-    
-    public override Person Clone(bool deepClone = false)
+
+    public Manager ShallowClone() => (Manager)MemberwiseClone();
+
+    public Manager DeepClone()
     {
-        if (deepClone)
-        {
-            var objectAsJson = JsonSerializer.Serialize(this);
+        var objectAsJson = JsonSerializer.Serialize(this);
             
-            return JsonSerializer.Deserialize<Manager>(objectAsJson);
-        }
-        
-        return (Person)MemberwiseClone();
+        return JsonSerializer.Deserialize<Manager>(objectAsJson);
     }
 }

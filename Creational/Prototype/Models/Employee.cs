@@ -5,7 +5,7 @@ namespace Creational.Prototype.Models;
 /// <summary>
 /// Concrete Prototype
 /// </summary>
-public class Employee : Person
+public record Employee : Person, ICloneableGeneric<Employee>, IDeepClonable<Employee>
 {
     public Manager Manager { get; set; }
     public override string Name { get; set; }
@@ -16,15 +16,12 @@ public class Employee : Person
         Manager = manager;
     }
     
-    public override Person Clone(bool deepClone = false)
+    public Employee ShallowClone() => (Employee)MemberwiseClone();
+
+    public Employee DeepClone()
     {
-        if (deepClone)
-        {
-            var objectAsJson = JsonSerializer.Serialize(this);
+        var objectAsJson = JsonSerializer.Serialize(this);
             
-            return JsonSerializer.Deserialize<Employee>(objectAsJson);
-        }
-        
-        return (Person)MemberwiseClone();
+        return JsonSerializer.Deserialize<Employee>(objectAsJson);
     }
 }
