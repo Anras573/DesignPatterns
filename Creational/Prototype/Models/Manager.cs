@@ -5,7 +5,7 @@ namespace Creational.Prototype.Models;
 /// <summary>
 /// Concrete Prototype
 /// </summary>
-public record Manager : Person, ICloneableGeneric<Manager>, IDeepClonable<Manager>
+public record Manager : Person, IShallowCloneable<Manager>, IDeepClonable<Manager>
 {
     public override string Name { get; set; }
     

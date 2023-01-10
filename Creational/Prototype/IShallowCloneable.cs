@@ -1,6 +1,6 @@
 ﻿namespace Creational.Prototype;
 
-public interface ICloneableGeneric<out T>
+public interface IShallowCloneable<out T>
 {
     T ShallowClone();
 }
