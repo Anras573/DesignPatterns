@@ -1,5 +1,6 @@
 ﻿using Behavior.ChainOfResponsibility;
 using Behavior.Command;
+using Behavior.Mediator;
 using Behavior.Strategy;
 using Behavior.Visitor;
 using Common;
@@ -18,7 +19,8 @@ var runners = new List<IRunner>
     new ShortCircuitChainOfResponsibilityRunner(),
     new PrototypeRunner(),
     new CommandRunner(),
-    new VisitorRunner()
+    new VisitorRunner(),
+    new MediatorRunner()
 };
 
 var keepGoing = true;
