@@ -1,5 +1,6 @@
 ﻿using Behavior.ChainOfResponsibility;
 using Behavior.Command;
+using Behavior.Interpreter;
 using Behavior.Mediator;
 using Behavior.Strategy;
 using Behavior.Visitor;
@@ -20,7 +21,9 @@ var runners = new List<IRunner>
     new PrototypeRunner(),
     new CommandRunner(),
     new VisitorRunner(),
-    new MediatorRunner()
+    new MediatorRunner(),
+    new OnlyTerminalInterpreterRunner(),
+    new FullInterpreterRunner()
 };
 
 var keepGoing = true;
